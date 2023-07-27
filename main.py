@@ -167,7 +167,7 @@ def final_comments(youtube, video_ids):
 # Display channel and video details
 def display_channel_data(channel_data, playlist_data, video_data, comments_data):
     st.subheader("Channel Details")
-    st.write(channel_data, index =[0])
+    st.write(channel_data)
 
     st.subheader("playlist items")
     st.write(playlist_data)
@@ -186,7 +186,7 @@ def store_mongodb(channel_data, playlist_data, video_data, comments_data):
         "playlist_data": playlist_data,
         "video_stats": video_data,
         "comments_data": comments_data}
-    mycol.insert_one(data)
+    return mycol.insert_one(data)
 
 # store data in MySQL:
 def store_in_sql(selected_document):
